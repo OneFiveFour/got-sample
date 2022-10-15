@@ -23,11 +23,7 @@ class MockWebServerRule : ExternalResource() {
     override fun before() {
         if (started) return
         started = true
-        try {
-            server.start()
-        } catch (e: IOException) {
-            throw RuntimeException(e)
-        }
+        server.start()
     }
 
     @After
@@ -42,12 +38,8 @@ class MockWebServerRule : ExternalResource() {
     fun getUrl() = server.url("/").url()!!
 
     fun mockHttpResponse(fileName: String, responseCode: Int) {
-        try {
-            val json = getJson(fileName)
-            server.enqueue(MockResponse().setResponseCode(responseCode).setBody(json))
-        } catch (e: Exception) {
-            throw FileNotFoundException("Could not find file for mockServer response: $fileName")
-        }
+        val json = getJson(fileName)
+        server.enqueue(MockResponse().setResponseCode(responseCode).setBody(json))
     }
 
     private fun getJson(fileName: String): String {
