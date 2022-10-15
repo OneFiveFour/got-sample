@@ -1,6 +1,5 @@
 package io.redandroid.network.rules
 
-import okhttp3.HttpUrl
 import com.squareup.okhttp.mockwebserver.MockResponse
 import com.squareup.okhttp.mockwebserver.MockWebServer
 import org.junit.After
@@ -8,9 +7,7 @@ import org.junit.Before
 import org.junit.rules.ExternalResource
 import timber.log.Timber
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.IOException
-import java.net.URL
 
 
 class MockWebServerRule : ExternalResource() {
