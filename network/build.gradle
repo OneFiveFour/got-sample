@@ -42,7 +42,7 @@ dependencies {
 
     // Dependency Injection
     implementation 'com.google.dagger:hilt-android:2.44'
-    kapt 'com.google.dagger:hilt-compiler:2.43.2'
+    kapt 'com.google.dagger:hilt-compiler:2.44'
 
     // Retrofit + Jackson - retrofit must be defined as 'api' so that the data module can use
     // the Callbacks provided by the network module. E.g. RepositoriesNetworkBoundaryCallback
