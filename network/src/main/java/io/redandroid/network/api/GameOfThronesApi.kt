@@ -4,6 +4,7 @@ import com.haroldadmin.cnradapter.NetworkResponse
 import io.redandroid.network.model.ErrorResponse
 import io.redandroid.network.model.Houses
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * The Retrofit definition of the Game of Thrones API.
@@ -19,6 +20,6 @@ interface GameOfThronesApi {
      * @param page the page number to fetch.
      */
     @GET("houses?pageSize=20")
-    suspend fun getHouses(page: Int): NetworkResponse<Houses, ErrorResponse>
+    suspend fun getHouses(@Query("page") page: Int): NetworkResponse<Houses, ErrorResponse>
 
 }

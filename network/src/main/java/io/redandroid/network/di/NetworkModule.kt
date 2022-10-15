@@ -1,5 +1,6 @@
 package io.redandroid.network.di
 
+import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,19 +42,20 @@ internal class NetworkModule {
         return Retrofit.Builder()
             .baseUrl(GameOfThronesApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(NetworkResponseAdapterFactory())
             .client(okHttpClient)
             .build()
     }
 
     @Provides
     @Singleton
-    fun getApi(retrofit: Retrofit) : GameOfThronesApi {
+    fun provideGameOfThronesApi(retrofit: Retrofit) : GameOfThronesApi {
         return retrofit.create(GameOfThronesApi::class.java)
     }
 
     @Provides
     @Singleton
-    fun getHouseService(): HouseService {
+    fun provideHouseService(): HouseService {
         return HouseService()
     }
 }
