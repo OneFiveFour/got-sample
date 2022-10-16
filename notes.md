@@ -20,6 +20,10 @@ Since we are currently in a transition phase between the two, I decided to give 
 The Compose-way of navigating the app by using routes does not work together with Fragments.
 This is why the app is currently still using the navigation components library.
 
+The pageSize is hardcoded to 50.
+If it was a requirement to make this dynamic, the HousesRemoteMediator would need to implement more logic to
+fetch and store the "nextPageKey" in the house_paging_key database table.
+
 # Todo
 
 * StartUp Lib

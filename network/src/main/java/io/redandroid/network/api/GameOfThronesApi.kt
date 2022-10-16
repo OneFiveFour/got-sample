@@ -16,10 +16,10 @@ interface GameOfThronesApi {
     }
 
     /**
-     * @return a paged list of houses in Game of Thrones. The hard-coded page size is 20.
+     * @return a paged list of houses in Game of Thrones.
      * @param page the page number to fetch.
      */
-    @GET("houses?pageSize=20")
-    suspend fun getHouses(@Query("page") page: Int): NetworkResponse<Houses, ErrorResponse>
+    @GET("houses?pageSize=50")
+    suspend fun getHouses(@Query("page") page: Int?): NetworkResponse<Houses, ErrorResponse>
 
 }

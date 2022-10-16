@@ -1,58 +1,29 @@
 package io.redandroid.gameofthrones.screens.houses
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.map
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.redandroid.data.common.ResourceStatus
+import io.redandroid.data.model.House
 import io.redandroid.data.repositories.HouseRepository
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+/**
+ * This ViewModel provides data related to houses in Game of Thrones.
+ */
 @HiltViewModel
 class HousesViewModel @Inject constructor(
     private val housesRepository: HouseRepository
 ) : ViewModel() {
 
-    private val _housesUiState = MutableStateFlow(HousesUiState())
-    val housesUiState = _housesUiState.asStateFlow()
-
-    init {
-        getHouses()
-    }
-
     /**
-     * Calls the nth [page] of houses from the API and updates
-     * [_housesUiState] accordingly.
+     * @return a Flow holding PagingData of the houses in Game of Thrones.
      */
-    private fun getHouses() {
-        viewModelScope.launch {
-            housesRepository
-                .getHouses(1)
-                .stateIn(viewModelScope)
-                .collectLatest { resource ->
-                    _housesUiState.update { currentState ->
-                        when (resource.status) {
-
-                            ResourceStatus.SUCCESS -> HousesUiState(
-                                resource.data!!,
-                                false
-                            )
-
-                            ResourceStatus.ERROR -> HousesUiState(
-                                currentState.houses,
-                                false,
-                                resource.message ?: "An unknown error occurred."
-                            )
-
-                            ResourceStatus.LOADING -> HousesUiState(
-                                currentState.houses,
-                                true
-                            )
-
-                        }
-                    }
-                }
+    fun getHouses(): Flow<PagingData<House>> {
+        return housesRepository.getHouses().map { pagingData ->
+            pagingData.map { house -> house }
         }
     }
 }

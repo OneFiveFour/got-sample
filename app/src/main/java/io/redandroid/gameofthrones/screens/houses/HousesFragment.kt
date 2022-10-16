@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.PagingData
 import dagger.hilt.android.AndroidEntryPoint
 import io.redandroid.data.model.House
 import io.redandroid.gameofthrones.common.ItemClickListener
@@ -17,6 +18,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+/**
+ * This fragment displays a list of all houses in Game of Thrones.
+ */
 @AndroidEntryPoint
 class HousesFragment : Fragment(), ItemClickListener {
 
@@ -38,14 +42,8 @@ class HousesFragment : Fragment(), ItemClickListener {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    housesViewModel.housesUiState.collectLatest { uiState ->
-                        if (uiState.errorMessage.isNotEmpty()) {
-                            setErrorState(uiState.errorMessage)
-                        } else if (uiState.isLoading) {
-                            setLoadingState()
-                        } else {
-                            setListState(uiState.houses)
-                        }
+                    housesViewModel.getHouses().collectLatest { pagingData ->
+                        (binding.rvHouses.adapter as HousesAdapter).submitData(pagingData)
                     }
                 }
             }
@@ -55,18 +53,6 @@ class HousesFragment : Fragment(), ItemClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun setListState(houses: List<House>) {
-        (binding.rvHouses.adapter as HousesAdapter).submitList(houses)
-    }
-
-    private fun setLoadingState() {
-
-    }
-
-    private fun setErrorState(errorMessage: String) {
-
     }
 
     override fun onItemClicked(clickedView: View, clickedItem: Any) {

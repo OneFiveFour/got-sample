@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 /**
  * A house in Game of Thrones.
  */
-@Entity(tableName = "customField")
+@Entity(tableName = "house")
 data class House(
     @PrimaryKey
     val id: Int,
