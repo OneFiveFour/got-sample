@@ -55,7 +55,7 @@ internal class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideHouseService(): HouseService {
-        return HouseService()
+    fun provideHouseService(api: GameOfThronesApi): HouseService {
+        return HouseService(api)
     }
 }

@@ -10,7 +10,8 @@ import javax.inject.Inject
  * This repository is used to fetch houses of Game of Thrones from the GoT API.
  */
 class HouseRepository @Inject constructor(
-    private val database: GameOfThronesDatabase
+    private val database: GameOfThronesDatabase,
+    private val housesService: HouseService
 ) {
 
     /**
@@ -21,7 +22,7 @@ class HouseRepository @Inject constructor(
      * passed on to the UI using Flow.
      */
     suspend fun getHouses(page: Int) = networkBoundResource(
-        networkCall = { HouseService().getHouses(page) },
+        networkCall = { housesService.getHouses(page) },
         convertNetworkResponse = { networkResponse -> HousesConverter.convert(networkResponse) },
         storeInDatabase = { convertedItems -> database.houseDao().insert(convertedItems) },
         fetchFromDatabase = { database.houseDao().getAll() }

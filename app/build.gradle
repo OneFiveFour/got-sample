@@ -57,6 +57,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     kapt 'com.google.dagger:hilt-android-compiler:2.44'
 
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
+
     // Logging
     implementation 'com.jakewharton.timber:timber:5.0.1'
 

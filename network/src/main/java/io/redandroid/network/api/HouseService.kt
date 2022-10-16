@@ -5,10 +5,9 @@ import javax.inject.Inject
 /**
  * This interface describes all public calls regarding houses in Game of Thrones.
  */
-class HouseService {
-
-    @Inject
-    internal lateinit var api: GameOfThronesApi
+class HouseService @Inject constructor(
+    val api: GameOfThronesApi
+){
 
     /**
      * @return a paged list of houses in Game of Thrones.
