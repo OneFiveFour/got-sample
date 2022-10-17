@@ -1,5 +1,6 @@
 package io.redandroid.gameofthrones.screens.houses
 
+import androidx.paging.PagingData
 import io.redandroid.data.model.House
 
 /**
@@ -10,12 +11,7 @@ data class HousesUiState (
     /**
      * The main content of the houses screen.
      */
-    val houses : List<House> = emptyList(),
-
-    /**
-     * If true, the UI should enter a loading state.
-     */
-    val isLoading : Boolean = false,
+    val houses : PagingData<House>? = null,
 
     /**
      * If not empty, the UI should enter an error state and show this message.

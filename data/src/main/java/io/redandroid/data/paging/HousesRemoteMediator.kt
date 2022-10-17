@@ -11,7 +11,6 @@ import io.redandroid.network.api.HouseService
 import io.redandroid.network.model.ErrorResponse
 import io.redandroid.network.model.Houses
 import retrofit2.HttpException
-import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 
@@ -63,14 +62,15 @@ class HousesRemoteMediator @Inject constructor(
             // In that case, the API will return the first page.
             val items = houseService.getHouses(page = pageKey)
 
+            // first convert the server response and catch possible network/server errors while doing so
+            val convertedHouses = convertNetworkResponse(items)
+
             // if a refresh was made, delete all cached items from the database
             if (loadType == LoadType.REFRESH) {
                 houseDao.clear()
                 housePagingKeyDao.clear()
             }
 
-            // convert network response and put it into the database
-            val convertedHouses = convertNetworkResponse(items)
             houseDao.insert(convertedHouses)
 
             // calculate the pageKey for the next page
@@ -98,11 +98,7 @@ class HousesRemoteMediator @Inject constructor(
     private fun convertNetworkResponse(response: NetworkResponse<Houses, ErrorResponse>): List<House> {
         when (response) {
 
-            is NetworkResponse.Success -> {
-                val convertedHouses = HousesConverter.convert(response.body)
-                Timber.d("+++ Got ${convertedHouses.size} houses.")
-                return convertedHouses
-            }
+            is NetworkResponse.Success -> return HousesConverter.convert(response.body)
 
             is NetworkResponse.ServerError -> {
                 val throwable = response.error ?: Throwable(response.response?.message() ?: "Unknown Server Error")
