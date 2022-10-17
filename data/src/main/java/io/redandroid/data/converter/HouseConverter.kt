@@ -14,7 +14,7 @@ object HouseConverter {
     fun convert(input: NetworkHouse) : AppHouse {
 
         val id = Integer.parseInt(input.url.substringAfterLast('/'))
-        val name = input.name
+        val name = input.name.substringAfter("House ")
 
         return AppHouse(
             id,

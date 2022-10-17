@@ -11,4 +11,4 @@ data class House(
     @PrimaryKey
     val id: Int,
     val name: String
-)
+) : HouseListItem
