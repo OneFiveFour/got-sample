@@ -24,6 +24,11 @@ The pageSize is hardcoded to 50.
 If it was a requirement to make this dynamic, the HousesRemoteMediator would need to implement more logic to
 fetch and store the "nextPageKey" in the house_paging_key database table.
 
+I wanted to add UnitTests for the HouseRemoteMediator as described here: https://developer.android.com/topic/libraries/architecture/paging/test#remotemediator-tests
+Unfortunately I got stuck in dependency conflicts, because the paging library force uses for some reason androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0
+while I want to use the newest version androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1. I tried to exclude this dep from the paging lib as well as enforcing my version,
+but after several sad attempts, I didn't want to spend more time on that and move on with the project...
+
 # Todo
 
 * StartUp Lib
