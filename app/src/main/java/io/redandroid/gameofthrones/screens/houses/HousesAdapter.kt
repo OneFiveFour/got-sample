@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import com.l4digital.fastscroll.FastScroller
 import io.redandroid.data.model.House
 import io.redandroid.data.model.HouseListItem
 import io.redandroid.data.model.ListHeader
@@ -21,7 +22,7 @@ import io.redandroid.gameofthrones.common.ItemClickListener
  * This adapter is using the Jetpack Paging library 3 and works together with [androidx.paging.PagingData]
  * Use [submitData] to set a new list of items. They are compared using the provided DiffCallback.
  */
-class HousesAdapter(private val clickListener: ItemClickListener) : PagingDataAdapter<HouseListItem, DataBindingViewHolder<HouseListItem>>(DiffCallback) {
+class HousesAdapter(private val clickListener: ItemClickListener) : PagingDataAdapter<HouseListItem, DataBindingViewHolder<HouseListItem>>(DiffCallback), FastScroller.SectionIndexer {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataBindingViewHolder<HouseListItem> {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -63,5 +64,14 @@ class HousesAdapter(private val clickListener: ItemClickListener) : PagingDataAd
             }
         }
 
+    }
+
+    override fun getSectionText(position: Int): CharSequence {
+        if (position < 0) return ""
+        return when (val item = getItem(position)) {
+            is ListHeader -> item.letter
+            is House -> item.name.first().toString()
+            else -> ""
+        }
     }
 }
