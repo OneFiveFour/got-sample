@@ -1,7 +1,6 @@
 package io.redandroid.gameofthrones.screens.houses
 
 import androidx.paging.PagingData
-import io.redandroid.data.model.House
 import io.redandroid.data.model.HouseListItem
 
 /**

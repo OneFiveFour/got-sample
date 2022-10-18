@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import io.redandroid.data.model.House
-import io.redandroid.data.model.HouseListItem
 
 /**
  * An interface describing all possible database operations for the house table

@@ -12,7 +12,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import io.redandroid.data.model.House
+import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.common.ItemClickListener
+import io.redandroid.gameofthrones.common.VerticalItemDecoration
 import io.redandroid.gameofthrones.databinding.FragmentHousesBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -37,6 +39,7 @@ class HousesFragment : Fragment(), ItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvHouses.adapter = HousesAdapter(this)
+        binding.rvHouses.addItemDecoration(VerticalItemDecoration(R.dimen.rv_item_margin))
         setupStateListener()
         collectUiState()
     }

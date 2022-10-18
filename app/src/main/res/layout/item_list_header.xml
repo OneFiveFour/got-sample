@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="io.redandroid.data.model.ListHeader" />
@@ -9,8 +11,11 @@
 
     <TextView
         android:id="@+id/tv_list_header"
+        style="@style/TextAppearance.GoT.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@{item.letter}"
-        />
+        tools:text="A"
+        android:textColor="?colorSecondaryVariant"/>
 </layout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Typography-->
+    <style name="TextAppearance.GoT" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textColor">?android:textColor</item>
+    </style>
+
+    <style name="TextAppearance.GoT.Large" >
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TextAppearance.GoT.Medium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.GoT.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+</resources>
