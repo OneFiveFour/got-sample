@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GameOfThrones</string>
+    <string name="app_name">GoT Houses</string>
     <string name="houses">Houses</string>
     <string name="loading_houses">Loading houses</string>
 </resources>
