@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Progress Bar -->
+    <style name="Widget.Bitpot.ProgressBar.Horizontal" parent="Widget.AppCompat.ProgressBar.Horizontal" >
+        <item name="android:indeterminateDrawable">@drawable/progress_bar_horizontal_indeterminate</item>
+        <item name="android:progressDrawable">@drawable/progress_bar_horizontal_progress</item>
+    </style>
+
+
+</resources>

@@ -11,6 +11,9 @@
         <item name="colorOnSecondary">@color/brown_dark</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+
+        <!-- Components -->
+        <item name="android:progressBarStyleHorizontal">@style/Widget.Bitpot.ProgressBar.Horizontal</item>
     </style>
 </resources>

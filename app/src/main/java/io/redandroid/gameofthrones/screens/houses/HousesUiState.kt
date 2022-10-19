@@ -17,5 +17,11 @@ data class HousesUiState (
      * If not empty, the UI should enter an error state and show this message.
      * If empty, everything works as expected.
      */
-    val errorMessage: String = ""
+    val errorMessage: String = "",
+
+
+    /**
+     * True if there is currently network activity. False otherwise
+     */
+    val isLoading : Boolean = false
 )
