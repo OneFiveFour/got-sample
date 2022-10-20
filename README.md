@@ -26,13 +26,13 @@ It also is written purely in Kotlin code. No Android-specific must be found here
 * Loading indicator and Swipe To Refresh functionality
 * FastScrolling by alphabet letters
 * Letter separators at the beginning of each new list section
-* Color Theme following the Material Guidelines
-* Mixture of old-school XML + MVVM and modern Compose architecture
+* Custom Color Theme that allows using the clients naming conventions and is not necessarily bound to Material restrictions.
+* Both: old-school XML + MVVM for one screen and modern Compose architecture for the other screen
 
 # What would change in large-scale apps?
 
 * GameOfThronesService should be an interface that is then implemented in an XXXImpl class. This would especially be helpful for unit testing.
-* For more complex APIs it would make sense to create separate services for separate API topics. The Retrofit instance would then be an externalized object.
+* For more complex APIs it would make sense to create separate services for separate API topics.
 * Also for more complex APIs, the NetworkModule should be refactored into several modules each with a specific responsibility.
 
 # What was left out for brevity
@@ -63,3 +63,4 @@ If I was required to parse the next pageKey from the server response (it is "hid
 * StartUp Lib
 * Gradle Release Code
 * maybe pipeline code
+* Cleanup Typography file
