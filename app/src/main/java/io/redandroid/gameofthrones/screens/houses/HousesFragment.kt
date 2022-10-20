@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -127,5 +128,7 @@ class HousesFragment : Fragment(), ItemClickListener {
     override fun onItemClicked(clickedView: View, clickedItem: Any) {
         if (clickedItem !is House) return
         Timber.d("+++ House clicked: $clickedItem")
+        val directions = HousesFragmentDirections.actionHousesFragmentToHouseFragment(clickedItem.id)
+        findNavController().navigate(directions)
     }
 }

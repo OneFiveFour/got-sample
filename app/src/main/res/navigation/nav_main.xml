@@ -9,5 +9,17 @@
         android:id="@+id/housesFragment"
         android:name="io.redandroid.gameofthrones.screens.houses.HousesFragment"
         android:label="fragment_houses"
-        tools:layout="@layout/fragment_houses" />
+        tools:layout="@layout/fragment_houses" >
+        <action
+            android:id="@+id/action_housesFragment_to_houseFragment"
+            app:destination="@id/houseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/houseFragment"
+        android:name="io.redandroid.gameofthrones.screens.house.HouseFragment"
+        android:label="HouseFragment">
+        <argument
+            android:name="houseId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
