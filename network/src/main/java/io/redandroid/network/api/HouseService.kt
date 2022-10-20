@@ -15,4 +15,9 @@ class HouseService @Inject constructor(
      */
     suspend fun getHouses(page: Int?) = api.getHouses(page)
 
+    /**
+     * @return the house with the given [id].
+     */
+    suspend fun getHouse(id: Int) = api.getHouse(id)
+
 }

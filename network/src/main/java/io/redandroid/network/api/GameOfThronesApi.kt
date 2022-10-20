@@ -2,8 +2,10 @@ package io.redandroid.network.api
 
 import com.haroldadmin.cnradapter.NetworkResponse
 import io.redandroid.network.model.ErrorResponse
+import io.redandroid.network.model.House
 import io.redandroid.network.model.Houses
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -21,5 +23,11 @@ interface GameOfThronesApi {
      */
     @GET("houses?pageSize=50")
     suspend fun getHouses(@Query("page") page: Int?): NetworkResponse<Houses, ErrorResponse>
+
+    /**
+     * @return the house with the given [id].
+     */
+    @GET("house/{id}")
+    suspend fun getHouse(@Path("id") id: Int): NetworkResponse<House, ErrorResponse>
 
 }

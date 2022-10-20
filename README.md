@@ -1,3 +1,25 @@
+# Code Overview
+
+The app is divided into 3 modules:
+
+1. **APP**:
+This is the UI layer of the app. It holds and is responsible for everything related to what is visible to the user.
+The app module has access to the data module, but not to the network module.
+ViewModels are fetching data from the data module and prepare that data into whatever form is wanted by their according Fragment/Composable
+
+2. **DATA**
+The data layer connects the payloads coming from the outside/server and the payloads used within the app domain.
+It transforms foreign domain models into our own models and takes care about when & what API endpoint is called.
+Repositories expose the converted data classes to the UI layer. To do so, they call the appropriate api call in the network layer.
+The data layer has access to the network layer, but not to the UI layer.
+The data layer is mostly pure Kotlin code. Only in rare cases some Android-specific dependencies should be found here. For example using the Paging Library.
+
+3. **NETWORK**
+As the name suggests, this layer is responsible for getting data from the network. 
+It is the one that is actually executing the API network calls. It exposes these server responses to the data layer.
+The network layer has neither access to the data layer nor to the UI layer. It stands on its own so to say.
+It also is written purely in Kotlin code. No Android-specific must be found here.
+
 # Features
 
 * Paged loading of the API calls using the Android Paging Library 3.0
@@ -39,4 +61,5 @@ If I was required to parse the next pageKey from the server response (it is "hid
 # Todo
 
 * StartUp Lib
-* App Icon
+* Gradle Release Code
+* maybe pipeline code

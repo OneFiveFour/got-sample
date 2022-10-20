@@ -16,8 +16,14 @@ interface HouseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(houses: List<House>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(house: House)
+
     @Query("SELECT * FROM house")
     fun getAll() : PagingSource<Int, House>
+
+    @Query("SELECT * FROM house WHERE id = :id LIMIT 1")
+    suspend fun get(id: Int) : House
 
     @Query("DELETE FROM house")
     suspend fun clear()
