@@ -2,4 +2,13 @@
     <string name="app_name">GoT Houses</string>
     <string name="houses">Houses</string>
     <string name="loading_houses">Loading houses</string>
+    <string name="north">The North</string>
+    <string name="dorne">Dorne</string>
+    <string name="riverlands">Riverlands</string>
+    <string name="iron_islands">Iron Islands</string>
+    <string name="vale">Vale</string>
+    <string name="westerlands">Westerlands</string>
+    <string name="reach">Reach</string>
+    <string name="crownlands">Crownlands</string>
+    <string name="stormlands">Stormlands</string>
 </resources>

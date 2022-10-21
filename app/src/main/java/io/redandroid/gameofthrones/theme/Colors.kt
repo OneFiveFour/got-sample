@@ -7,13 +7,13 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 
-private val colorPrimary = Color(0xff000000)
-private val colorPrimaryVariant = Color(0xff222222)
-private val colorOnPrimary = Color(0xff3a3a3a)
+private val colorPrimary = Color(0xff331C0E)
+private val colorPrimaryVariant = Color(0xff67331E)
+private val colorOnPrimary = Color(0xffF6F5F5)
 
-private val colorSecondary = Color(0xff232323)
-private val colorSecondaryVariant = Color(0xff393939)
-private val colorOnSecondary = Color(0xff4f4f4f)
+private val colorSecondary = Color(0xffFFF190)
+private val colorSecondaryVariant = Color(0xffC38D5F)
+private val colorOnSecondary = Color(0xff331C0E)
 
 /**
  * All colors that are part of the GoT mobile CD.

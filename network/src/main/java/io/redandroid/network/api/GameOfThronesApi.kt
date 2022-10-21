@@ -27,7 +27,7 @@ interface GameOfThronesApi {
     /**
      * @return the house with the given [id].
      */
-    @GET("house/{id}")
+    @GET("houses/{id}")
     suspend fun getHouse(@Path("id") id: Int): NetworkResponse<House, ErrorResponse>
 
 }

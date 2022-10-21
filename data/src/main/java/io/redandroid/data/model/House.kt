@@ -10,5 +10,6 @@ import androidx.room.PrimaryKey
 data class House(
     @PrimaryKey
     val id: Int,
-    val name: String
+    val name: String,
+    val region: Region
 ) : HouseListItem
