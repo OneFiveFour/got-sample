@@ -1,4 +1,4 @@
-package io.redandroid.gameofthrones.common
+package io.redandroid.gameofthrones.common.recyclerview
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

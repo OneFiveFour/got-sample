@@ -11,9 +11,9 @@ import io.redandroid.data.model.House
 import io.redandroid.data.model.HouseListItem
 import io.redandroid.data.model.ListHeader
 import io.redandroid.gameofthrones.R
-import io.redandroid.gameofthrones.common.DataBindingAdapter
-import io.redandroid.gameofthrones.common.DataBindingViewHolder
-import io.redandroid.gameofthrones.common.ItemClickListener
+import io.redandroid.gameofthrones.common.recyclerview.DataBindingAdapter
+import io.redandroid.gameofthrones.common.recyclerview.DataBindingViewHolder
+import io.redandroid.gameofthrones.common.recyclerview.ItemClickListener
 
 
 /**

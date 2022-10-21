@@ -1,4 +1,4 @@
-package io.redandroid.gameofthrones.common
+package io.redandroid.gameofthrones.common.recyclerview
 
 import android.graphics.Rect
 import android.view.View

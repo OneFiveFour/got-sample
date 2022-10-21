@@ -19,8 +19,8 @@ import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.bindingadapters.isLoading
 import io.redandroid.gameofthrones.bindingadapters.isRefreshing
 import io.redandroid.gameofthrones.bindingadapters.setVisibilityGone
-import io.redandroid.gameofthrones.common.ItemClickListener
-import io.redandroid.gameofthrones.common.VerticalItemDecoration
+import io.redandroid.gameofthrones.common.recyclerview.ItemClickListener
+import io.redandroid.gameofthrones.common.recyclerview.VerticalItemDecoration
 import io.redandroid.gameofthrones.databinding.FragmentHousesBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

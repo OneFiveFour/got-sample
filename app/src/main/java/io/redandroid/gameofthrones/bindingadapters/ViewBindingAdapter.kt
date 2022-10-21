@@ -2,7 +2,7 @@ package io.redandroid.gameofthrones.bindingadapters
 
 import android.view.View
 import androidx.databinding.BindingAdapter
-import io.redandroid.gameofthrones.common.ItemClickListener
+import io.redandroid.gameofthrones.common.recyclerview.ItemClickListener
 
 /**
  * Binding Adapter to set the given [ItemClickListener] to the clicked [view]
