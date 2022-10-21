@@ -11,7 +11,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.redandroid.data.model.House
 import io.redandroid.data.model.Region
-import io.redandroid.gameofthrones.common.map.Westeros
 import io.redandroid.gameofthrones.theme.GoTTheme
 
 @Composable
@@ -22,6 +21,7 @@ fun HouseScreen(
     Column {
 
         if (houseUiState.errorMessage.isNotEmpty()) {
+
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -34,7 +34,6 @@ fun HouseScreen(
 
         } else if (houseUiState.isLoading) {
 
-
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -44,21 +43,11 @@ fun HouseScreen(
                 color = GoTTheme.colors.onSecondary,
                 textAlign = TextAlign.Center
             )
+
         } else {
 
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                text = houseUiState.house.name,
-                style = GoTTheme.typography.large.regular,
-                color = GoTTheme.colors.onSecondary,
-                textAlign = TextAlign.Center
-            )
+            HouseDetails(houseUiState)
 
-            Westeros(
-                highlightedRegions = listOf(houseUiState.house.region)
-            )
         }
 
     }
@@ -70,7 +59,12 @@ fun HouseScreen(
 fun HouseScreenPreview() {
     HouseScreen(
         houseUiState = HouseUiState(
-            house = House(1, "Test House", Region.STORMLANDS)
+            house = House(
+                1,
+                "Test House",
+                Region.STORMLANDS,
+                "No Foe May Pass"
+            )
         )
     )
 }

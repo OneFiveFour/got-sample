@@ -11,4 +11,7 @@
     <string name="reach">Reach</string>
     <string name="crownlands">Crownlands</string>
     <string name="stormlands">Stormlands</string>
+    <string name="neck">Neck</string>
+    <string name="unknown">Unknown</string>
+    <string name="quote">Quote</string>
 </resources>

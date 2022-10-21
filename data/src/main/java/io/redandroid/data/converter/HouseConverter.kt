@@ -16,11 +16,13 @@ object HouseConverter {
         val id = Integer.parseInt(input.url.substringAfterLast('/'))
         val name = input.name.substringAfter("House ")
         val region = RegionConverter.convert(input.region)
+        val words = input.words
 
         return AppHouse(
             id,
             name,
-            region
+            region,
+            words
         )
     }
 

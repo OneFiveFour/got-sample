@@ -11,5 +11,6 @@ data class House(
     @PrimaryKey
     val id: Int,
     val name: String,
-    val region: Region
+    val region: Region,
+    val words: String
 ) : HouseListItem
