@@ -20,6 +20,8 @@ fun <RequestType, ResultType> networkBoundResource(
 
 ) = flow<Resource<ResultType>> {
 
+    emit(Resource.loading(null))
+
     when (val serverResponse = networkCall()) {
 
         is NetworkResponse.Success -> {

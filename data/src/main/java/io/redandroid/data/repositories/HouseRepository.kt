@@ -10,7 +10,6 @@ import io.redandroid.data.converter.HouseConverter
 import io.redandroid.data.converter.PersonConverter
 import io.redandroid.data.database.HouseDao
 import io.redandroid.data.model.Person
-import io.redandroid.data.model.House as AppHouse
 import io.redandroid.data.paging.HousesRemoteMediator
 import io.redandroid.network.api.HouseService
 import io.redandroid.network.api.PersonService
@@ -18,9 +17,10 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
-import io.redandroid.network.model.House as NetworkHouse
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import io.redandroid.data.model.House as AppHouse
+import io.redandroid.network.model.House as NetworkHouse
 
 /**
  * This repository is used to fetch houses of Game of Thrones from the GoT API.

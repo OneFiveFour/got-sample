@@ -35,6 +35,8 @@ fun House(houseUiState: HouseUiState) {
             textAlign = TextAlign.Center
         )
 
+        Spacer(modifier = Modifier.height(8.dp))
+
         Westeros(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             highlightedRegions = listOf(houseUiState.house.region)

@@ -1,6 +1,5 @@
 package io.redandroid.network.di
 
-import android.app.Person
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import dagger.Module
 import dagger.Provides

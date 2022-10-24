@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import io.redandroid.data.model.House
-import kotlinx.coroutines.flow.Flow
 
 /**
  * An interface describing all possible database operations for the house table

@@ -32,15 +32,7 @@ fun HouseScreen(
 
         } else if (houseUiState.isLoading) {
 
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                text = "LOADING",
-                style = GoTTheme.typography.large.regular,
-                color = GoTTheme.colors.onSecondary,
-                textAlign = TextAlign.Center
-            )
+            LoadingIndicator()
 
         } else {
 
