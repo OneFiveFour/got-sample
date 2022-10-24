@@ -12,5 +12,6 @@ data class House(
     val id: Int,
     val name: String,
     val region: Region,
-    val words: String
+    val words: String,
+    val coatOfArms: String
 ) : HouseListItem

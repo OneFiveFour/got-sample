@@ -27,6 +27,9 @@ class GoTTextStyle(val textSize: TextUnit) {
     val mediumItalic = medium.copy(
         fontStyle = FontStyle.Italic
     )
+    val regularItalic = regular.copy(
+        fontStyle = FontStyle.Italic
+    )
 
 }
 

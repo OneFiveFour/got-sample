@@ -63,7 +63,8 @@ fun HouseScreenPreview() {
                 1,
                 "Test House",
                 Region.STORMLANDS,
-                "No Foe May Pass"
+                "No Foe May Pass",
+                "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)"
             )
         )
     )

@@ -17,12 +17,14 @@ object HouseConverter {
         val name = input.name.substringAfter("House ")
         val region = RegionConverter.convert(input.region)
         val words = input.words
+        val coatOfArms = input.coatOfArms
 
         return AppHouse(
             id,
             name,
             region,
-            words
+            words,
+            coatOfArms
         )
     }
 

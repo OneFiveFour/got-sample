@@ -36,38 +36,33 @@ fun HouseDetails(houseUiState: HouseUiState) {
             textAlign = TextAlign.Center
         )
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
+        Westeros(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            highlightedRegions = listOf(houseUiState.house.region)
+        )
 
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = stringResource(id = toRegionName(houseUiState.house.region)),
+            style = GoTTheme.typography.small.regular,
+            color = GoTTheme.colors.onSecondary,
+            textAlign = TextAlign.Center
+        )
 
-            Column(modifier = Modifier.weight(1f)) {
-
-                Westeros(
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                    highlightedRegions = listOf(houseUiState.house.region)
-                )
-
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = stringResource(id = toRegionName(houseUiState.house.region)),
-                    style = GoTTheme.typography.small.regular,
-                    color = GoTTheme.colors.onSecondary,
-                    textAlign = TextAlign.Center
-                )
-
-            }
-
-            Column(modifier = Modifier.weight(1f)) {
-
-                if (houseUiState.house.words.isNotEmpty()) {
-                    Quote(
-                        modifier = Modifier.fillMaxWidth(),
-                        text = houseUiState.house.words
-                    )
-                }
-
-            }
-
+        if (houseUiState.house.words.isNotEmpty()) {
+            Quote(
+                modifier = Modifier.fillMaxWidth(),
+                text = houseUiState.house.words
+            )
         }
+
+        if (houseUiState.house.coatOfArms.isNotEmpty()) {
+            CoatOfArms(
+                coatOfArms = houseUiState.house.coatOfArms
+            )
+        }
+
+    
 
     }
 
@@ -95,7 +90,11 @@ fun toRegionName(region: Region): Int {
 fun HouseDetailPreview() {
     val houseUiState = HouseUiState(
         house = House(
-            1, "Test House", Region.STORMLANDS, "No Foe May Pass"
+            1,
+            "Test House",
+            Region.STORMLANDS,
+            "No Foe May Pass",
+            "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)"
         )
     )
 

@@ -11,7 +11,7 @@ private val colorPrimary = Color(0xff331C0E)
 private val colorPrimaryVariant = Color(0xff67331E)
 private val colorOnPrimary = Color(0xffF6F5F5)
 
-private val colorSecondary = Color(0xffFFF190)
+private val colorSecondary = Color(0xFFFFF9D6)
 private val colorSecondaryVariant = Color(0xffC38D5F)
 private val colorOnSecondary = Color(0xff331C0E)
 

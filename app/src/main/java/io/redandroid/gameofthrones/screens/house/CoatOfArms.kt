@@ -2,60 +2,54 @@ package io.redandroid.gameofthrones.screens.house
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.theme.GoTTheme
 
 @Composable
-fun Quote(
+fun CoatOfArms(
     modifier: Modifier = Modifier,
-    text: String
+    coatOfArms: String
 ) {
 
-    Column(modifier = modifier
+    Row(modifier = modifier
         .background(color = GoTTheme.colors.secondary, shape = RoundedCornerShape(10.dp))
         .padding(8.dp)
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.quote_begin),
-            contentDescription = null
+            painter = painterResource(id = R.drawable.coat_of_arms),
+            contentDescription = stringResource(id = R.string.coat_of_arms)
         )
+
+        Spacer(modifier = Modifier.width(8.dp))
 
         Text(
-            modifier = Modifier.fillMaxWidth(),
-            text = text,
-            style = GoTTheme.typography.small.regularItalic,
-            color = GoTTheme.colors.onSecondary,
-            textAlign = TextAlign.Center
+            text = coatOfArms,
+            style = GoTTheme.typography.small.regular,
+            color = GoTTheme.colors.onSecondary
         )
 
-        Image(
-            modifier = Modifier.align(Alignment.End),
-            painter = painterResource(id = R.drawable.quote_end),
-            contentDescription = null
-        )
     }
-
 
 }
 
 
 @Preview
 @Composable
-fun QuotePreview() {
-    Quote(
-        text = "No Foe May Pass"
+fun CoatOfArmsPreview() {
+    CoatOfArms(
+        coatOfArms = "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)"
     )
 }
