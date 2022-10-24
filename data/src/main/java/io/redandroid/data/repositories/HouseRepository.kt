@@ -14,6 +14,10 @@ import io.redandroid.data.model.House as AppHouse
 import io.redandroid.data.paging.HousesRemoteMediator
 import io.redandroid.network.api.HouseService
 import io.redandroid.network.api.PersonService
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import io.redandroid.network.model.House as NetworkHouse
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -37,11 +41,40 @@ class HouseRepository @Inject constructor(
         convertNetworkResponse = { networkResponse ->
             var convertedHouse = HouseConverter.convert(networkResponse)
             convertedHouse = getCurrentLord(networkResponse, convertedHouse)
+            convertedHouse = getSwornMembers(networkResponse, convertedHouse)
             convertedHouse
         },
         storeInDatabase = { convertedItems -> houseDao.insert(convertedItems) },
         fetchFromDatabase = { houseDao.get(id) }
     )
+
+    private suspend fun getSwornMembers(networkResponse: NetworkHouse, convertedHouse: AppHouse): AppHouse {
+
+        val membersDeferred = mutableListOf<Deferred<Person>>()
+
+        coroutineScope {
+            networkResponse.swornMembers.forEach { memberUrl ->
+                val memberDeferred = async {
+
+                    val memberIdString = memberUrl.substringAfterLast("/")
+                    if (memberIdString.isEmpty()) return@async Person("", emptyList())
+
+                    val memberId = Integer.parseInt(memberIdString)
+                    val memberNetworkResponse = personService.getPerson(memberId)
+                    if (memberNetworkResponse is NetworkResponse.Success) {
+                        return@async PersonConverter.convert(memberNetworkResponse.body)
+                    }
+
+                    return@async Person("", emptyList())
+                }
+
+                membersDeferred.add(memberDeferred)
+            }
+        }
+
+        val members = membersDeferred.awaitAll().filter { it.name.isNotEmpty() }
+        return convertedHouse.copy(swornMembers = members)
+    }
 
     private suspend fun getCurrentLord(networkResponse: NetworkHouse, convertedHouse: AppHouse) : AppHouse {
         val currentLordIdString = networkResponse.currentLord.substringAfterLast("/")

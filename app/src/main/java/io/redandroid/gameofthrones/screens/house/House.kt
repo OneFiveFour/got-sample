@@ -56,17 +56,16 @@ fun House(houseUiState: HouseUiState) {
         }
 
         if (houseUiState.house.coatOfArms.isNotEmpty()) {
-            CoatOfArms(
-                coatOfArms = houseUiState.house.coatOfArms
-            )
+            CoatOfArms(coatOfArms = houseUiState.house.coatOfArms)
         }
 
         if (houseUiState.house.currentLord.name.isNotEmpty()) {
-            Lord(
-                lord = houseUiState.house.currentLord
-            )
+            Lord(lord = houseUiState.house.currentLord)
         }
 
+        if (houseUiState.house.swornMembers.isNotEmpty()) {
+            SwornMembers(swornMembers = houseUiState.house.swornMembers)
+        }
 
 
     }

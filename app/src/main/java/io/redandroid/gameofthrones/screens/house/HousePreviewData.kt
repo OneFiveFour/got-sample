@@ -12,8 +12,8 @@ fun getHousePreview() = House(
     "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)",
     Person("Name of Lord", listOf("Title 1", "Title 2")),
     listOf(
-        Person("Name of Sworn Member 1", emptyList()),
+        Person("Name of Sworn Member 1", listOf("Title 1", "Title 2")),
         Person("Name of Sworn Member 2", emptyList()),
-        Person("Name of Sworn Member 3", emptyList())
+        Person("Name of Sworn Member 3", listOf("Title 1"))
     )
 )
