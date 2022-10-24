@@ -24,6 +24,7 @@ fun Quote(
 ) {
 
     Column(modifier = modifier
+        .fillMaxWidth()
         .background(color = GoTTheme.colors.secondary, shape = RoundedCornerShape(10.dp))
         .padding(8.dp)
     ) {

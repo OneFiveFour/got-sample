@@ -1,5 +1,6 @@
 package io.redandroid.network.di
 
+import android.app.Person
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -7,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.redandroid.network.api.GameOfThronesApi
 import io.redandroid.network.api.HouseService
+import io.redandroid.network.api.PersonService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -57,5 +59,11 @@ internal class NetworkModule {
     @Singleton
     fun provideHouseService(api: GameOfThronesApi): HouseService {
         return HouseService(api)
+    }
+
+    @Provides
+    @Singleton
+    fun providePersonService(api: GameOfThronesApi): PersonService {
+        return PersonService(api)
     }
 }

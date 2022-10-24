@@ -1,5 +1,6 @@
 package io.redandroid.data.converter
 
+import io.redandroid.data.model.Person
 import io.redandroid.data.model.House as AppHouse
 import io.redandroid.network.model.House as NetworkHouse
 
@@ -18,13 +19,17 @@ object HouseConverter {
         val region = RegionConverter.convert(input.region)
         val words = input.words
         val coatOfArms = input.coatOfArms
+        val currentLord = Person("", emptyList())
+        val swornMembers = emptyList<Person>()
 
         return AppHouse(
             id,
             name,
             region,
             words,
-            coatOfArms
+            coatOfArms,
+            currentLord,
+            swornMembers
         )
     }
 

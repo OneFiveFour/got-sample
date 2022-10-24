@@ -64,3 +64,5 @@ If I was required to parse the next pageKey from the server response (it is "hid
 * Gradle Release Code
 * maybe pipeline code
 * Cleanup Typography file
+* Type Converter for Person
+* Chained network calls house -> person

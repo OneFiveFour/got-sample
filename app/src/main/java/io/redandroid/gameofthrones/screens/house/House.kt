@@ -11,14 +11,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.redandroid.data.model.House
 import io.redandroid.data.model.Region
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.common.map.Westeros
 import io.redandroid.gameofthrones.theme.GoTTheme
 
 @Composable
-fun HouseDetails(houseUiState: HouseUiState) {
+fun House(houseUiState: HouseUiState) {
 
     Column(
         modifier = Modifier
@@ -62,7 +61,13 @@ fun HouseDetails(houseUiState: HouseUiState) {
             )
         }
 
-    
+        if (houseUiState.house.currentLord.name.isNotEmpty()) {
+            Lord(
+                lord = houseUiState.house.currentLord
+            )
+        }
+
+
 
     }
 
@@ -89,16 +94,10 @@ fun toRegionName(region: Region): Int {
 @Composable
 fun HouseDetailPreview() {
     val houseUiState = HouseUiState(
-        house = House(
-            1,
-            "Test House",
-            Region.STORMLANDS,
-            "No Foe May Pass",
-            "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)"
-        )
+        house = getHousePreview()
     )
 
     Box(modifier = Modifier.background(Color.White)) {
-        HouseDetails(houseUiState)
+        House(houseUiState)
     }
 }

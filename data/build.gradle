@@ -48,11 +48,13 @@ dependencies {
     kapt "androidx.room:room-compiler:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
 
+    // Json
+    implementation 'com.google.code.gson:gson:2.9.0'
+
     // Logging
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
     // Unit Tests
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'com.google.code.gson:gson:2.9.0'
     testImplementation "com.google.truth:truth:1.1.3"
 }

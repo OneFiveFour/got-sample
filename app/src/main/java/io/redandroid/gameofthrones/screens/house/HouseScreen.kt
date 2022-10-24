@@ -1,6 +1,6 @@
 package io.redandroid.gameofthrones.screens.house
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
@@ -9,8 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.redandroid.data.model.House
-import io.redandroid.data.model.Region
 import io.redandroid.gameofthrones.theme.GoTTheme
 
 @Composable
@@ -18,7 +16,7 @@ fun HouseScreen(
     houseUiState: HouseUiState
 ) {
 
-    Column {
+    Box {
 
         if (houseUiState.errorMessage.isNotEmpty()) {
 
@@ -46,7 +44,7 @@ fun HouseScreen(
 
         } else {
 
-            HouseDetails(houseUiState)
+            House(houseUiState)
 
         }
 
@@ -59,13 +57,7 @@ fun HouseScreen(
 fun HouseScreenPreview() {
     HouseScreen(
         houseUiState = HouseUiState(
-            house = House(
-                1,
-                "Test House",
-                Region.STORMLANDS,
-                "No Foe May Pass",
-                "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)"
-            )
+            house = getHousePreview()
         )
     )
 }

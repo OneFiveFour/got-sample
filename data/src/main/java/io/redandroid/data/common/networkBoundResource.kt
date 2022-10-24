@@ -11,12 +11,12 @@ import kotlinx.coroutines.flow.flowOn
  * use this function to make API calls that are then converted into the [ResultType].
  * All network events are emitted as [Resource] events from the created flow.
  */
-inline fun <RequestType, ResultType> networkBoundResource(
+fun <RequestType, ResultType> networkBoundResource(
 
-    crossinline networkCall: suspend () -> NetworkResponse<RequestType, ErrorResponse>,
-    crossinline convertNetworkResponse: suspend (RequestType) -> ResultType,
-    crossinline storeInDatabase: suspend (ResultType) -> Unit = { },
-    crossinline fetchFromDatabase: suspend () -> ResultType? = { null }
+    networkCall: suspend () -> NetworkResponse<RequestType, ErrorResponse>,
+    convertNetworkResponse: suspend (RequestType) -> ResultType,
+    storeInDatabase: suspend (ResultType) -> Unit = { },
+    fetchFromDatabase: suspend () -> ResultType? = { null }
 
 ) = flow<Resource<ResultType>> {
 

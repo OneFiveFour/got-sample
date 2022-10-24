@@ -1,6 +1,7 @@
 package io.redandroid.gameofthrones.screens.house
 
 import io.redandroid.data.model.House
+import io.redandroid.data.model.Person
 import io.redandroid.data.model.Region
 
 data class HouseUiState(
@@ -8,7 +9,15 @@ data class HouseUiState(
     /**
      * The data of the selected house.
      */
-    val house: House = House(0, "", Region.UNKNOWN, "", ""),
+    val house: House = House(
+        0,
+        "",
+        Region.UNKNOWN,
+        "",
+        "",
+        Person("", emptyList()),
+        emptyList()
+    ),
 
     /**
      * If not empty, the UI should enter an error state and show this message.

@@ -11,13 +11,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import io.redandroid.data.model.Person
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.theme.GoTTheme
 
 @Composable
-fun CoatOfArms(
+fun Lord(
     modifier: Modifier = Modifier,
-    coatOfArms: String
+    lord: Person
 ) {
 
     Row(modifier = modifier
@@ -27,17 +28,28 @@ fun CoatOfArms(
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.coat_of_arms),
-            contentDescription = stringResource(id = R.string.coat_of_arms)
+            painter = painterResource(id = R.drawable.lord),
+            contentDescription = stringResource(id = R.string.current_lord)
         )
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        Text(
-            text = coatOfArms,
-            style = GoTTheme.typography.small.regular,
-            color = GoTTheme.colors.onSecondary
-        )
+        Column {
+            Text(
+                text = lord.name,
+                style = GoTTheme.typography.medium.regular,
+                color = GoTTheme.colors.onSecondary
+            )
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            Text(
+                text = lord.titles.joinToString(",\n"),
+                style = GoTTheme.typography.small.regularItalic,
+                color = GoTTheme.colors.onSecondary
+            )
+        }
+
 
     }
 
@@ -46,8 +58,13 @@ fun CoatOfArms(
 
 @Preview
 @Composable
-fun CoatOfArmsPreview() {
-    CoatOfArms(
-        coatOfArms = "A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or)"
+fun LordPreview() {
+    Lord(
+        lord = Person(
+            name = "Delonne Allyrion",
+            titles = listOf(
+                "Lady of Godsgrace"
+            )
+        )
     )
 }
