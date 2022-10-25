@@ -8,11 +8,9 @@ import androidx.compose.ui.graphics.Color
 
 
 private val colorPrimary = Color(0xff331C0E)
-private val colorPrimaryVariant = Color(0xff67331E)
 private val colorOnPrimary = Color(0xffF6F5F5)
 
-private val colorSecondary = Color(0xFFFFF9D6)
-private val colorSecondaryVariant = Color(0xffC38D5F)
+private val colorSecondary = Color(0xFFD7DCE4)
 private val colorOnSecondary = Color(0xff331C0E)
 
 /**
@@ -20,22 +18,16 @@ private val colorOnSecondary = Color(0xff331C0E)
  */
 class Colors(
     colorPrimary : Color,
-    colorPrimaryVariant : Color,
     colorOnPrimary : Color,
     colorSecondary : Color,
-    colorSecondaryVariant : Color,
     colorOnSecondary : Color
 ) {
     var primary by mutableStateOf(colorPrimary)
-        private set
-    var primaryVariant by mutableStateOf(colorPrimaryVariant)
         private set
     var onPrimary by mutableStateOf(colorOnPrimary)
         private set
 
     var secondary by mutableStateOf(colorSecondary)
-        private set
-    var secondaryVariant by mutableStateOf(colorSecondaryVariant)
         private set
     var onSecondary by mutableStateOf(colorOnSecondary)
         private set
@@ -43,10 +35,8 @@ class Colors(
 
 fun generateColors() = Colors(
     colorPrimary,
-    colorPrimaryVariant,
     colorOnPrimary,
     colorSecondary,
-    colorSecondaryVariant,
     colorOnSecondary
 )
 

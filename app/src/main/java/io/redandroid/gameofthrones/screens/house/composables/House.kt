@@ -1,7 +1,10 @@
-package io.redandroid.gameofthrones.screens.house
+package io.redandroid.gameofthrones.screens.house.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -9,11 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.*
 import io.redandroid.data.model.Region
 import io.redandroid.gameofthrones.R
+import io.redandroid.gameofthrones.common.composables.AutoSizeText
+import io.redandroid.gameofthrones.common.composables.FontSizeRange
 import io.redandroid.gameofthrones.common.map.Westeros
+import io.redandroid.gameofthrones.screens.house.*
 import io.redandroid.gameofthrones.theme.GoTTheme
 
 @Composable
@@ -22,35 +29,56 @@ fun House(houseUiState: HouseUiState) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
+            .padding(16.dp)
+            .verticalScroll(state = rememberScrollState())
     ) {
 
-        Text(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+        // NAME OF HOUSE
+        AutoSizeText(
+            modifier = Modifier.fillMaxWidth(),
             text = houseUiState.house.name,
-            style = GoTTheme.typography.large.regular,
             color = GoTTheme.colors.onSecondary,
-            textAlign = TextAlign.Center
+            style = GoTTheme.typography.xlarge.condensed,
+            textAlign = TextAlign.Center,
+            fontSizeRange = FontSizeRange(
+                min = GoTTheme.typography.small.regular.fontSize,
+                max = GoTTheme.typography.xlarge.condensed.fontSize
+            ),
+            maxLines = 1
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Westeros(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            highlightedRegions = listOf(houseUiState.house.region)
-        )
+        // MAP OF WESTEROS
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    color = GoTTheme.colors.secondary,
+                    shape = RoundedCornerShape(16.dp)
+                )
+                .padding(24.dp),
+            verticalAlignment = Alignment.Bottom,
+        ) {
 
-        Text(
-            modifier = Modifier.fillMaxWidth(),
-            text = stringResource(id = toRegionName(houseUiState.house.region)),
-            style = GoTTheme.typography.small.regular,
-            color = GoTTheme.colors.onSecondary,
-            textAlign = TextAlign.Center
-        )
+            Westeros(
+                modifier = Modifier.weight(1f),
+                highlightedRegions = listOf(houseUiState.house.region)
+            )
+
+            Text(
+                modifier = Modifier
+                    .weight(1.3f)
+                    .padding(start = 8.dp),
+                text = stringResource(id = toRegionName(houseUiState.house.region)),
+                style = GoTTheme.typography.large.regular,
+                color = GoTTheme.colors.onSecondary,
+            )
+
+        }
 
         if (houseUiState.house.words.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(8.dp))
             Quote(
                 modifier = Modifier.fillMaxWidth(),
                 text = houseUiState.house.words
@@ -58,14 +86,17 @@ fun House(houseUiState: HouseUiState) {
         }
 
         if (houseUiState.house.coatOfArms.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(8.dp))
             CoatOfArms(coatOfArms = houseUiState.house.coatOfArms)
         }
 
         if (houseUiState.house.currentLord.name.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(8.dp))
             Lord(lord = houseUiState.house.currentLord)
         }
 
         if (houseUiState.house.swornMembers.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(8.dp))
             SwornMembers(swornMembers = houseUiState.house.swornMembers)
         }
 
@@ -95,7 +126,7 @@ fun toRegionName(region: Region): Int {
 @Composable
 fun HouseDetailPreview() {
     val houseUiState = HouseUiState(
-        house = getHousePreview()
+        house = getHousePreview().copy(name = "Allyrion of a House with a long nam")
     )
 
     Box(modifier = Modifier.background(Color.White)) {

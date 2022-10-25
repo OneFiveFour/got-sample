@@ -1,9 +1,8 @@
-package io.redandroid.gameofthrones.screens.house
+package io.redandroid.gameofthrones.screens.house.composables
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,18 +20,11 @@ fun Lord(
     lord: Person
 ) {
 
-    Row(modifier = modifier
-        .fillMaxWidth()
-        .background(color = GoTTheme.colors.secondary, shape = RoundedCornerShape(10.dp))
-        .padding(8.dp)
+    HeadlineCard(
+        modifier = modifier,
+        headline = stringResource(id = R.string.current_lord),
+        icon = painterResource(id = R.drawable.current_lord)
     ) {
-
-        Image(
-            painter = painterResource(id = R.drawable.lord),
-            contentDescription = stringResource(id = R.string.current_lord)
-        )
-
-        Spacer(modifier = Modifier.width(8.dp))
 
         Column {
             Text(
@@ -45,11 +37,10 @@ fun Lord(
 
             Text(
                 text = lord.titles.joinToString(",\n"),
-                style = GoTTheme.typography.small.regularItalic,
+                style = GoTTheme.typography.small.regular,
                 color = GoTTheme.colors.onSecondary
             )
         }
-
 
     }
 

@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
+import io.redandroid.gameofthrones.screens.house.composables.HouseScreen
 import io.redandroid.gameofthrones.theme.GoTTheme
 import kotlinx.coroutines.launch
 

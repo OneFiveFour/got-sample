@@ -28,11 +28,11 @@ It also is written purely in Kotlin code. No Android-specific must be found here
 * Letter separators at the beginning of each new list section
 * Custom Color Theme that allows using the clients naming conventions and is not necessarily bound to Material restrictions.
 * Both: old-school XML + MVVM for one screen and modern Compose architecture for the other screen
+* Chained API Calls using different ways of coroutines (First get the house and then its Lord and Sworn Members)
 
 # What would change in large-scale apps?
 
 * GameOfThronesService should be an interface that is then implemented in an XXXImpl class. This would especially be helpful for unit testing.
-* For more complex APIs it would make sense to create separate services for separate API topics.
 * Also for more complex APIs, the NetworkModule should be refactored into several modules each with a specific responsibility.
 
 # What was left out for brevity
@@ -63,6 +63,6 @@ If I was required to parse the next pageKey from the server response (it is "hid
 * StartUp Lib
 * Gradle Release Code
 * maybe pipeline code
-* Cleanup Typography file
-* Type Converter for Person
-* Chained network calls house -> person
+* dark theme
+* comment all composables
+* Dynamic font size for house headline

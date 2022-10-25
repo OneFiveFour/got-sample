@@ -2,44 +2,47 @@ package io.redandroid.gameofthrones.theme
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
+import io.redandroid.gameofthrones.R
 
 /**
  * The sub-variants of typography in the app.
  */
-class GoTTextStyle(val textSize: TextUnit) {
-
+class GoTTextStyle(textSize: TextUnit) {
     val regular = TextStyle(
-        fontWeight = FontWeight.Normal,
+        fontFamily = FontFamily(Font(
+            R.font.junge,
+            FontWeight.Normal
+        )),
         fontSize = textSize
-    )
-    val medium = TextStyle(
-        fontWeight = FontWeight.Medium,
-        fontSize = textSize
-    )
-    val bold = TextStyle(
-        fontWeight = FontWeight.Bold,
-        fontSize = textSize
-    )
-    val mediumItalic = medium.copy(
-        fontStyle = FontStyle.Italic
-    )
-    val regularItalic = regular.copy(
-        fontStyle = FontStyle.Italic
     )
 
+    @OptIn(ExperimentalUnitApi::class)
+    val condensed = TextStyle(
+        fontFamily = FontFamily(Font(
+            R.font.junge,
+            FontWeight.Normal
+        )),
+        fontSize = textSize,
+        letterSpacing = TextUnit(-4f, TextUnitType.Sp)
+    )
 }
 
 /**
  * The main variants of the typography in the app.
  */
 data class GoTTypography(
-    val large: GoTTextStyle = GoTTextStyle(32.sp),
-    val medium: GoTTextStyle = GoTTextStyle(18.sp),
-    val small: GoTTextStyle = GoTTextStyle(12.sp)
+    val xlarge: GoTTextStyle = GoTTextStyle(48.sp),
+    val large: GoTTextStyle = GoTTextStyle(24.sp),
+    val medium: GoTTextStyle = GoTTextStyle(20.sp),
+    val small: GoTTextStyle = GoTTextStyle(14.sp)
 )
 
 internal val LocalTypography = staticCompositionLocalOf { GoTTypography() }

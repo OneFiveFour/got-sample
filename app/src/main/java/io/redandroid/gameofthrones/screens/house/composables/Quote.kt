@@ -1,4 +1,4 @@
-package io.redandroid.gameofthrones.screens.house
+package io.redandroid.gameofthrones.screens.house.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -37,7 +37,7 @@ fun Quote(
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = text,
-            style = GoTTheme.typography.small.regularItalic,
+            style = GoTTheme.typography.medium.regular,
             color = GoTTheme.colors.onSecondary,
             textAlign = TextAlign.Center
         )

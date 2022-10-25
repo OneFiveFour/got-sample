@@ -15,7 +15,7 @@ import io.redandroid.gameofthrones.R
 
 private var regions : List<Region> = emptyList()
 
-private fun getAlpha(region: Region) = if (regions.contains(region)) 1f else 0.1f
+private fun getAlpha(region: Region) = if (regions.contains(region)) 1f else 0.3f
 
 @Composable
 fun Westeros(
@@ -25,10 +25,7 @@ fun Westeros(
 
     regions = highlightedRegions
 
-    Box(modifier = modifier
-        .width(125.dp)
-        .height(250.dp)
-    ) {
+    Box(modifier = modifier) {
 
         Image(
             painter = painterResource(id = R.drawable.westeros_north),

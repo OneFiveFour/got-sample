@@ -1,4 +1,4 @@
-package io.redandroid.gameofthrones.screens.house
+package io.redandroid.gameofthrones.screens.house.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,19 +20,11 @@ fun CoatOfArms(
     coatOfArms: String
 ) {
 
-    Row(modifier = modifier
-        .fillMaxWidth()
-        .background(color = GoTTheme.colors.secondary, shape = RoundedCornerShape(10.dp))
-        .padding(8.dp)
+    HeadlineCard(
+        modifier = modifier,
+        headline = stringResource(id = R.string.coat_of_arms),
+        icon = painterResource(id = R.drawable.coat_of_arms)
     ) {
-
-        Image(
-            painter = painterResource(id = R.drawable.coat_of_arms),
-            contentDescription = stringResource(id = R.string.coat_of_arms)
-        )
-
-        Spacer(modifier = Modifier.width(8.dp))
-
         Text(
             text = coatOfArms,
             style = GoTTheme.typography.small.regular,

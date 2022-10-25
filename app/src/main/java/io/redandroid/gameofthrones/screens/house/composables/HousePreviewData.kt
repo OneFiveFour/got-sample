@@ -1,4 +1,4 @@
-package io.redandroid.gameofthrones.screens.house
+package io.redandroid.gameofthrones.screens.house.composables
 
 import io.redandroid.data.model.House
 import io.redandroid.data.model.Person

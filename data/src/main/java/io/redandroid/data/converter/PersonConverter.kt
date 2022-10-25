@@ -14,7 +14,11 @@ object PersonConverter {
     fun convert(input: NetworkPerson) :  AppPerson{
 
         val name = input.name
-        val titles = input.titles
+        val titles = when {
+            input.titles.isEmpty() -> emptyList()
+            input.titles.size == 1 && input.titles.first() == "" -> emptyList()
+            else -> input.titles
+        }
 
         return AppPerson(
             name,
