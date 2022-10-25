@@ -12,17 +12,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.*
+import androidx.compose.ui.unit.dp
 import io.redandroid.data.model.Region
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.common.composables.AutoSizeText
 import io.redandroid.gameofthrones.common.composables.FontSizeRange
 import io.redandroid.gameofthrones.common.map.Westeros
-import io.redandroid.gameofthrones.screens.house.*
+import io.redandroid.gameofthrones.screens.house.HouseUiState
 import io.redandroid.gameofthrones.theme.GoTTheme
 
+/**
+ * Displays the details of a house in Game of Thrones.
+ */
 @Composable
 fun House(houseUiState: HouseUiState) {
 
@@ -126,7 +128,7 @@ fun toRegionName(region: Region): Int {
 @Composable
 fun HouseDetailPreview() {
     val houseUiState = HouseUiState(
-        house = getHousePreview().copy(name = "Allyrion of a House with a long nam")
+        house = getHousePreview()
     )
 
     Box(modifier = Modifier.background(Color.White)) {

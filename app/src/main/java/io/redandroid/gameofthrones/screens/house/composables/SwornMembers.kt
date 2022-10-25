@@ -3,7 +3,6 @@ package io.redandroid.gameofthrones.screens.house.composables
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,6 +14,9 @@ import io.redandroid.data.model.Person
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.theme.GoTTheme
 
+/**
+ * This Composable lists all sworn members in Game Of Thrones.
+ */
 @Composable
 fun SwornMembers(
     modifier: Modifier = Modifier,

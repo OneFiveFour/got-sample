@@ -14,6 +14,10 @@ import io.redandroid.data.model.Person
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.theme.GoTTheme
 
+/**
+ * This Composable displays the given [Person] as current lord
+ * of a house in Game of Thrones.
+ */
 @Composable
 fun Lord(
     modifier: Modifier = Modifier,

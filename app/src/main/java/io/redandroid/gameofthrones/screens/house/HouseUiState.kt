@@ -4,6 +4,10 @@ import io.redandroid.data.model.House
 import io.redandroid.data.model.Person
 import io.redandroid.data.model.Region
 
+/**
+ * A description of the UI State of the details of a house
+ * in Game Of Thrones.
+ */
 data class HouseUiState(
 
     /**

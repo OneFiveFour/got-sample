@@ -58,6 +58,8 @@ fetch and store the "nextPageKey" in the house_paging_key database table.
 If I was required to parse the next pageKey from the server response (it is "hidden" in the response header), you can find an implementation for that here:
 [https://github.com/OneFiveFour/got-sample/blob/c2c59fb0519a5b9278e1f413fe5a54a1448949c6/data/src/main/java/io/redandroid/data/paging/HousePagingSource.kt]
 
+* Due to the mix of XML and Compose it was not possible to create fancy screen transitions with a sensible amount of effort.
+
 # Todo
 
 * StartUp Lib
@@ -65,4 +67,3 @@ If I was required to parse the next pageKey from the server response (it is "hid
 * maybe pipeline code
 * dark theme
 * comment all composables
-* Dynamic font size for house headline

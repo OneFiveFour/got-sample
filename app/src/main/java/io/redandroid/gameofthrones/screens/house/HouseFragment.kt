@@ -19,6 +19,13 @@ import io.redandroid.gameofthrones.screens.house.composables.HouseScreen
 import io.redandroid.gameofthrones.theme.GoTTheme
 import kotlinx.coroutines.launch
 
+/**
+ * The main fragment for showing the details of a house
+ * in Game Of Thrones. Since this screen is using Jetpack Compose, the Fragment'
+ * is mainly delegating ViewModel states to the setContent method.
+ * Everything else happens in the compose world -> [House]
+ *
+ */
 @AndroidEntryPoint
 class HouseFragment : Fragment() {
 

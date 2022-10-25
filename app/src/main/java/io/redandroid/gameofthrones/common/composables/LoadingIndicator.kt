@@ -1,4 +1,4 @@
-package io.redandroid.gameofthrones.screens.house.composables
+package io.redandroid.gameofthrones.common.composables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +16,9 @@ import androidx.compose.ui.unit.dp
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.theme.GoTTheme
 
+/**
+ * An indeterminate loading indicator to show, while the app is fetching data.
+ */
 @Composable
 fun LoadingIndicator(
     modifier: Modifier = Modifier

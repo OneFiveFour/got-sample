@@ -17,6 +17,9 @@ import androidx.compose.ui.unit.dp
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.theme.GoTTheme
 
+/**
+ * This Composable displays the word of a house in Game Of Thrones.
+ */
 @Composable
 fun Quote(
     modifier: Modifier = Modifier,

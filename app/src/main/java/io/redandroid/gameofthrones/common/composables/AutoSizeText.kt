@@ -16,6 +16,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
+/**
+ * A custom implementation to scale the Text composable
+ * according to size limitations.
+ */
 @Composable
 fun AutoSizeText(
     text: String,
@@ -72,6 +76,9 @@ fun AutoSizeText(
     )
 }
 
+/**
+ * The range that is allowed as font size when using [AutoSizeText]
+ */
 data class FontSizeRange(
     val min: TextUnit,
     val max: TextUnit,

@@ -13,9 +13,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.redandroid.gameofthrones.R
-import io.redandroid.gameofthrones.common.composables.AutoSizeText
 import io.redandroid.gameofthrones.theme.GoTTheme
 
+/**
+ * Displays your [content] in a rounded-corner card with a headline and an icon
+ * above it.
+ *
+ * @param headline the headline of your card
+ * @param icon the icon that will be visible next to the headline
+ */
 @Composable
 fun HeadlineCard(
     modifier: Modifier = Modifier,

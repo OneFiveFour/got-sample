@@ -9,6 +9,11 @@ import io.redandroid.data.repositories.HouseRepository
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
+/**
+ * This ViewModel is used to fetch detailed data of
+ * a house in Game Of Thrones. Depending on the responses from
+ * the data layer, the [houseUiState] gets updated.
+ */
 @HiltViewModel
 class HouseViewModel @Inject constructor(
     private val houseRepository: HouseRepository

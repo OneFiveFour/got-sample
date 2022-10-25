@@ -9,9 +9,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import io.redandroid.gameofthrones.common.composables.LoadingIndicator
 import io.redandroid.gameofthrones.screens.house.HouseUiState
 import io.redandroid.gameofthrones.theme.GoTTheme
 
+/**
+ * This is the main Composable for the House details.
+ */
 @Composable
 fun HouseScreen(
     houseUiState: HouseUiState
