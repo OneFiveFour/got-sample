@@ -18,4 +18,5 @@
     <string name="current_lord">Current Lord</string>
     <string name="sworn_members">Sworn Members</string>
     <string name="loading">loading...</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

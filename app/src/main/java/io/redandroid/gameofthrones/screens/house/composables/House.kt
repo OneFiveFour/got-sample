@@ -31,17 +31,16 @@ fun House(houseUiState: HouseUiState) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
             .verticalScroll(state = rememberScrollState())
     ) {
 
         // NAME OF HOUSE
         AutoSizeText(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(0.8f).padding(top = 16.dp),
             text = houseUiState.house.name,
             color = GoTTheme.colors.onSecondary,
             style = GoTTheme.typography.xlarge.condensed,
-            textAlign = TextAlign.Center,
             fontSizeRange = FontSizeRange(
                 min = GoTTheme.typography.small.regular.fontSize,
                 max = GoTTheme.typography.xlarge.condensed.fontSize

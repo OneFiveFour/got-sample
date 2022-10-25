@@ -41,6 +41,7 @@ It also is written purely in Kotlin code. No Android-specific must be found here
 * The amount of UnitTests was reduced to just exemplary samples.
 * Since this app is fairly simple, the UseCase layer was skipped. ViewModels can talk directly to the data/domain layer.
 * The fallback error messages are not I18Nized.
+* The DarkMode setting is not persisted and does not implement the usual selection dialog (On, Off, System). Instead it switches hard-coded between On and Off.
 
 # Other comments
 
@@ -65,5 +66,3 @@ If I was required to parse the next pageKey from the server response (it is "hid
 * StartUp Lib
 * Gradle Release Code
 * maybe pipeline code
-* dark theme
-* comment all composables

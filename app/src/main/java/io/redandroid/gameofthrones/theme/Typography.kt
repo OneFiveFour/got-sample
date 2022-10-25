@@ -30,7 +30,7 @@ class GoTTextStyle(textSize: TextUnit) {
             FontWeight.Normal
         )),
         fontSize = textSize,
-        letterSpacing = TextUnit(-4f, TextUnitType.Sp)
+        letterSpacing = TextUnit(-2f, TextUnitType.Sp)
     )
 }
 
