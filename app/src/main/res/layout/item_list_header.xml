@@ -17,5 +17,5 @@
         android:gravity="center"
         android:text="@{item.letter}"
         tools:text="A"
-        android:textColor="?colorSecondaryVariant"/>
+        android:textColor="?colorOnSecondary"/>
 </layout>

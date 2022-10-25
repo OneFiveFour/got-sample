@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.GameOfThrones" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/brown_mid</item>
-        <item name="colorPrimaryVariant">@color/brown_dark</item>
+        <item name="colorPrimary">@color/brown_dark</item>
+        <item name="colorPrimaryVariant">@color/brown_mid</item>
         <item name="colorOnPrimary">@color/beige</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/yellow_light</item>
-        <item name="colorSecondaryVariant">@color/yellow_dark</item>
+        <item name="colorSecondary">@color/blue_light</item>
+        <item name="colorSecondaryVariant">@color/beige</item>
         <item name="colorOnSecondary">@color/brown_dark</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>

@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/tv_headline"
-        style="@style/TextAppearance.GoT.Large"
+        style="@style/TextAppearance.GoT.XLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

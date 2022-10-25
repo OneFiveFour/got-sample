@@ -4,18 +4,24 @@
     <!--Typography-->
     <style name="TextAppearance.GoT" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="android:textColor">?android:textColor</item>
+        <item name="fontFamily">@font/junge</item>
+    </style>
+
+    <style name="TextAppearance.GoT.XLarge" >
+        <item name="android:textSize">48sp</item>
+        <item name="android:letterSpacing">-0.07</item>
     </style>
 
     <style name="TextAppearance.GoT.Large" >
-        <item name="android:textSize">32sp</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="TextAppearance.GoT.Medium">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="TextAppearance.GoT.Small">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>
