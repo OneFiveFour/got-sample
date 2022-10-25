@@ -7,7 +7,11 @@ plugins {
     id 'io.gitlab.arturbosch.detekt' version '1.21.0'
 }
 
-
+def signingProperties = new Properties()
+def signingFile = file("../got.properties")
+if (signingFile.exists()) {
+    signingFile.withInputStream { signingProperties.load(it) }
+}
 
 android {
     namespace 'io.redandroid.gameofthrones'
@@ -44,6 +48,31 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+
+    signingConfigs {
+        release {
+            if (signingFile.exists()) {
+                storeFile file(signingProperties.getProperty("signing.keystorePath"))
+                storePassword signingProperties.getProperty("signing.keystorePassword")
+                keyAlias signingProperties.getProperty("signing.keyAlias")
+                keyPassword signingProperties.getProperty("signing.keyPassword")
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+
+        release {
+            minifyEnabled true
+            debuggable false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
@@ -52,8 +81,8 @@ dependencies {
     // Android Basics
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation "androidx.fragment:fragment-ktx:1.5.3"
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation "androidx.fragment:fragment-ktx:1.5.4"
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
 
     // Compose
@@ -64,8 +93,8 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:1.2.1"
 
     // Data Binding
-    implementation 'androidx.databinding:databinding-common:8.0.0-alpha04'
-    implementation 'androidx.databinding:databinding-adapters:8.0.0-alpha04'
+    implementation 'androidx.databinding:databinding-common:8.0.0-alpha06'
+    implementation 'androidx.databinding:databinding-adapters:8.0.0-alpha06'
 
     // Dependency Injection
     implementation "com.google.dagger:hilt-android:2.44"
@@ -75,8 +104,8 @@ dependencies {
     kapt 'com.google.dagger:hilt-android-compiler:2.44'
 
     // Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
-    implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
     // Paging
     implementation "androidx.paging:paging-runtime-ktx:3.1.1"

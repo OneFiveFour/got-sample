@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import io.redandroid.data.model.House
@@ -55,6 +56,8 @@ class HousesFragment : Fragment(), ItemClickListener {
     }
 
     private fun setupRecyclerView() {
+        housesAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+
         binding.rvHouses.apply {
             setLayoutManager(LinearLayoutManager(context))
             setAdapter(housesAdapter)
