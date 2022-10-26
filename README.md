@@ -60,9 +60,3 @@ If I was required to parse the next pageKey from the server response (it is "hid
 [https://github.com/OneFiveFour/got-sample/blob/c2c59fb0519a5b9278e1f413fe5a54a1448949c6/data/src/main/java/io/redandroid/data/paging/HousePagingSource.kt]
 
 * Due to the mix of XML and Compose it was not possible to create fancy screen transitions with a sensible amount of effort.
-
-# Todo
-
-* StartUp Lib
-* Gradle Release Code
-* maybe pipeline code

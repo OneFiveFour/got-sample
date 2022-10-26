@@ -1,0 +1,32 @@
+{
+  "url": "https://anapioficeandfire.com/api/characters/298",
+  "name": "Delonne Allyrion",
+  "gender": "Female",
+  "culture": "Dornish",
+  "born": "",
+  "died": "",
+  "titles": [
+    "Lady of Godsgrace"
+  ],
+  "aliases": [
+    ""
+  ],
+  "father": "",
+  "mother": "",
+  "spouse": "",
+  "allegiances": [
+    "https://anapioficeandfire.com/api/houses/2"
+  ],
+  "books": [
+    "https://anapioficeandfire.com/api/books/3",
+    "https://anapioficeandfire.com/api/books/5",
+    "https://anapioficeandfire.com/api/books/8"
+  ],
+  "povBooks": [],
+  "tvSeries": [
+    ""
+  ],
+  "playedBy": [
+    ""
+  ]
+}

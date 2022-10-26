@@ -2,7 +2,7 @@ package io.redandroid.data.converter
 
 import com.google.common.truth.Truth.assertThat
 import com.google.gson.Gson
-import io.redandroid.utils.FileUtil
+import io.redandroid.data.utils.FileUtil
 import org.junit.Test
 import io.redandroid.network.model.House as NetworkHouse
 
@@ -11,7 +11,7 @@ class HouseConverterTest {
     private val sut = HouseConverter
 
     @Test
-    fun `convert house model from network into domain model`() {
+    fun `correct house json is converted into domain model class`() {
         // Given a network House model
         val gson = Gson()
         val json = FileUtil.getJson("house.json")
@@ -25,6 +25,15 @@ class HouseConverterTest {
         assertThat(convertedHouse.name).isEqualTo("Algood")
     }
 
+    @Test(expected = NullPointerException::class)
+    fun `empty json input throws null pointer exception`() {
+        // Given a network House model
+        val gson = Gson()
+        val json = FileUtil.getJson("empty.json")
+        val house = gson.fromJson(json, NetworkHouse::class.java)
 
-    // TODO: add negative tests for faulty input data.
+        // When converting this model expect an NPE
+        sut.convert(house)
+    }
+
 }
