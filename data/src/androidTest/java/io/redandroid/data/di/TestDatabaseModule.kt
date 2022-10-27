@@ -15,7 +15,10 @@ import io.redandroid.data.database.GameOfThronesDatabase
     replaces = [DatabaseModule::class]
 )
 class TestDatabaseModule {
-    
+
+    /**
+     * Provides an inMemoryDatabase for easy integration testing.
+     */
     @Provides
     fun provideDatabase(@ApplicationContext applicationContext: Context): GameOfThronesDatabase {
         return Room.inMemoryDatabaseBuilder(applicationContext, GameOfThronesDatabase::class.java)
