@@ -20,7 +20,7 @@ interface GameOfThronesApi {
 
     /**
      * @return a paged list of houses in Game of Thrones.
-     * @param page the page number to fetch.
+     * @param page the page number to fetch. If null, the first page will load.
      */
     @GET("houses?pageSize=50")
     suspend fun getHouses(@Query("page") page: Int?): NetworkResponse<Houses, ErrorResponse>

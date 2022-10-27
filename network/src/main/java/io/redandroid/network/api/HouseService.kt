@@ -11,7 +11,7 @@ class HouseService @Inject constructor(
 
     /**
      * @return a paged list of houses in Game of Thrones.
-     * @param page the page number to be fetched.
+     * @param page the page number to be fetched. If null, the first page will load.
      */
     suspend fun getHouses(page: Int?) = api.getHouses(page)
 

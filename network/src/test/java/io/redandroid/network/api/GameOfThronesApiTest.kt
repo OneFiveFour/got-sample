@@ -27,6 +27,7 @@ class GameOfThronesApiTest {
     fun setup() {
         val module = NetworkModule()
 
+        // create custom retrofit object
         val retrofit = Retrofit.Builder()
             .baseUrl(mockWebServerRule.getUrl())
             .addConverterFactory(GsonConverterFactory.create())
