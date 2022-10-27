@@ -1,7 +1,9 @@
 package io.redandroid.network.model
 import com.google.gson.annotations.SerializedName
 
-
+/**
+ * A person in Game Of Thrones
+ */
 data class Person(
     @SerializedName("aliases")
     val aliases: List<String>,

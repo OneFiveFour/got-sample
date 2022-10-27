@@ -10,7 +10,7 @@ import java.lang.reflect.Type
 /**
  * Database Converter to convert a [Person] to String and back
  */
-class PersonConverter {
+class PersonTypeConverter {
 
     private val gson = Gson()
 

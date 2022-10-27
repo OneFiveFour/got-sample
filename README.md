@@ -23,17 +23,27 @@ It also is written purely in Kotlin code. No Android-specific must be found here
 # Features
 
 * Paged loading of the API calls using the Android Paging Library 3.0
-* Loading indicator and Swipe To Refresh functionality
-* FastScrolling by alphabet letters
-* Letter separators at the beginning of each new list section
-* Custom Color Theme that allows using the clients naming conventions and is not necessarily bound to Material restrictions.
+* Dependency Injection using Hilt
+* Static Code Analysis using detekt
+* Custom Color Theme that allows using the clients naming conventions and is not (necessarily) bound to Material restrictions.
+* Dark Theme
 * Both: old-school XML + MVVM for one screen and modern Compose architecture for the other screen
+* Data from the API is persisted and updated into a database for offline usage and general caching
+* Error Handling is possible in every architecture layer in the app. It is also possible to differentiate between types of error (Network, Server, etc.)
+* Navigation by using the Jetpack Navigation components
+* Visual loading indicator and SwipeToRefresh functionality
+* FastScrolling by alphabet letters
+* List headers at the beginning of each new list section (by alphabet)
 * Chained API Calls using different ways of coroutines (First get the house and then its Lord and Sworn Members)
+* Exemplary set of Unit and integration tests
+* Exemplary release build config
+* A really impressive app icon ;)
 
 # What would change in large-scale apps?
 
 * GameOfThronesService should be an interface that is then implemented in an XXXImpl class. This would especially be helpful for unit testing.
 * Also for more complex APIs, the NetworkModule should be refactored into several modules each with a specific responsibility.
+* Setup for ContinuousIntegration and ContinuousDeployment (fastlane, pipelines, etc.)
 
 # What was left out for brevity
 

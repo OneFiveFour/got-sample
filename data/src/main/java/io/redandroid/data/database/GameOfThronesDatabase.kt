@@ -15,7 +15,7 @@ import io.redandroid.data.model.HousePagingKey
     exportSchema = false
 )
 @TypeConverters(
-    PersonConverter::class
+    PersonTypeConverter::class
 )
 abstract class GameOfThronesDatabase: RoomDatabase() {
 
