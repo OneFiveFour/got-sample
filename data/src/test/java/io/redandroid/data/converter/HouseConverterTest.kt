@@ -6,6 +6,9 @@ import io.redandroid.data.utils.FileUtil
 import org.junit.Test
 import io.redandroid.network.model.House as NetworkHouse
 
+/**
+ * Some UnitTests to check if the [HouseConverter] does its job correctly.
+ */
 class HouseConverterTest {
 
     private val sut = HouseConverter

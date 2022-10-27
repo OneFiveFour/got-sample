@@ -36,6 +36,10 @@ class HouseRepository @Inject constructor(
         private const val PAGE_SIZE = 50
     }
 
+    /**
+     * Loads a single house with the given [id] and returns it as Flow.
+     * The data is wrapped in a [Resource] that indicates the current loading status.
+     */
     suspend fun getHouse(id: Int) = networkBoundResource(
         networkCall = { houseService.getHouse(id) },
         convertNetworkResponse = { networkResponse ->
@@ -48,13 +52,20 @@ class HouseRepository @Inject constructor(
         fetchFromDatabase = { houseDao.get(id) }
     )
 
+    /**
+     * Using the [networkResponse], this method loads all sworn members of the house.
+     * These members are then added to the [convertedHouse] and the new house data is returned.
+     */
     private suspend fun getSwornMembers(networkResponse: NetworkHouse, convertedHouse: AppHouse): AppHouse {
 
+        // To allow parallel loading of the list of sworn members, we are using a Deferred object
         val membersDeferred = mutableListOf<Deferred<Person>>()
 
         coroutineScope {
             networkResponse.swornMembers.forEach { memberUrl ->
                 val memberDeferred = async {
+
+                    // load all sworn members in parallel and add the result to membersDeferred
 
                     val memberIdString = memberUrl.substringAfterLast("/")
                     if (memberIdString.isEmpty()) return@async Person("", emptyList())
@@ -72,10 +83,15 @@ class HouseRepository @Inject constructor(
             }
         }
 
+        // after all deferrals arrived, we return them along with the convertedHouse data object.
         val members = membersDeferred.awaitAll().filter { it.name.isNotEmpty() }
         return convertedHouse.copy(swornMembers = members)
     }
 
+    /**
+     * Using the [networkResponse], this method loads the current lord of the house.
+     * The lord data is then added to the [convertedHouse] and the new house data is returned.
+     */
     private suspend fun getCurrentLord(networkResponse: NetworkHouse, convertedHouse: AppHouse) : AppHouse {
         val currentLordIdString = networkResponse.currentLord.substringAfterLast("/")
 
@@ -91,6 +107,10 @@ class HouseRepository @Inject constructor(
         return convertedHouse
     }
 
+
+    /**
+     * @return a Pager object that can be used to show the paged data in a RecyclerView.
+     */
     @OptIn(ExperimentalPagingApi::class)
     fun getHouses(): Flow<PagingData<AppHouse>> {
         return Pager(
