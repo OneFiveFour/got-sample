@@ -17,6 +17,8 @@
     <string name="coat_of_arms">Coat of arms</string>
     <string name="current_lord">Current Lord</string>
     <string name="sworn_members">Sworn Members</string>
-    <string name="loading">loading...</string>
+    <string name="loading">loading…</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="error_title">Error</string>
+    <string name="error_message">An error occurred:\n\n%s</string>
 </resources>

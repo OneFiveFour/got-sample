@@ -2,7 +2,6 @@ package io.redandroid.data.converter
 
 import com.google.common.truth.Truth.assertThat
 import com.google.gson.Gson
-import io.redandroid.network.model.House
 import io.redandroid.data.utils.FileUtil
 import org.junit.Test
 import io.redandroid.network.model.Houses as NetworkHouses

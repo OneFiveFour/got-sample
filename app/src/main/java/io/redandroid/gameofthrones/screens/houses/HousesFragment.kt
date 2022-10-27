@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import io.redandroid.data.model.House
 import io.redandroid.gameofthrones.R
@@ -96,10 +96,18 @@ class HousesFragment : Fragment(), ItemClickListener {
             val combinedLoadStates = listOf(loadStates.append, loadStates.refresh, loadStates.prepend)
             if (combinedLoadStates.any { it is LoadState.Error }) {
                 val message = combinedLoadStates.first { it is LoadState.Error }.toString()
-                Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+                showError(message)
             }
 
         }
+    }
+
+    private fun showError(message: String) {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.error_title)
+            .setMessage(getString(R.string.error_message, message))
+            .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
+            .show()
     }
 
     /**
