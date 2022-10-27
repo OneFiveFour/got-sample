@@ -28,7 +28,6 @@ fun isLoading(view: View, isLoading: Boolean?) {
 
 /**
  * A common binding adapter to use a boolean for hiding and showing a View.
- * This one is setting the View to GONE. Use "binding:isInvisible" to set it to INVISIBLE.
  */
 @BindingAdapter("isVisible")
 fun setVisibilityGone(view: View, isVisible: Boolean) {

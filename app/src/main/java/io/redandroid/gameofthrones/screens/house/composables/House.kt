@@ -17,7 +17,7 @@ import io.redandroid.data.model.Region
 import io.redandroid.gameofthrones.R
 import io.redandroid.gameofthrones.common.composables.AutoSizeText
 import io.redandroid.gameofthrones.common.composables.FontSizeRange
-import io.redandroid.gameofthrones.common.map.Westeros
+import io.redandroid.gameofthrones.common.composables.Westeros
 import io.redandroid.gameofthrones.screens.house.HouseUiState
 import io.redandroid.gameofthrones.theme.GoTTheme
 

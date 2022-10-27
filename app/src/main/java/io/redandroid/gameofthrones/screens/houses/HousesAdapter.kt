@@ -66,6 +66,9 @@ class HousesAdapter(private val clickListener: ItemClickListener) : PagingDataAd
 
     }
 
+    /**
+     * @return the alphabet letter for FastScrolling
+     */
     override fun getSectionText(position: Int): CharSequence {
         if (position < 0) return ""
         return when (val item = getItem(position)) {

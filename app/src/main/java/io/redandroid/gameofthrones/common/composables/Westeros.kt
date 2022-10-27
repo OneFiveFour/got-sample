@@ -1,4 +1,4 @@
-package io.redandroid.gameofthrones.common.map
+package io.redandroid.gameofthrones.common.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

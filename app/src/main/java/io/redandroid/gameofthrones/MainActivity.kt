@@ -8,11 +8,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * The MainActivity is the starting point of this app.
- * Depending on the navigation graph, the according content will be displayed here.
  */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

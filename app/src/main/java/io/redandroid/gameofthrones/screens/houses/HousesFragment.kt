@@ -80,6 +80,9 @@ class HousesFragment : Fragment(), ItemClickListener {
         }
     }
 
+    /**
+     * Depending on the loadStates of the paging adapter, we show a loading indicator or an error
+     */
     private fun setupLoadingIndicator() {
         housesAdapter.addLoadStateListener { loadStates ->
             // get all info for refresh/network indicators
