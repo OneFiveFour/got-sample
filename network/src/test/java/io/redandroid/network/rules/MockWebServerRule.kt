@@ -1,11 +1,11 @@
 package io.redandroid.network.rules
 
+import android.util.Log
 import com.squareup.okhttp.mockwebserver.MockResponse
 import com.squareup.okhttp.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
 import org.junit.rules.ExternalResource
-import timber.log.Timber
 import java.io.File
 import java.io.IOException
 
@@ -28,7 +28,7 @@ class MockWebServerRule : ExternalResource() {
         try {
             server.shutdown()
         } catch (e: IOException) {
-            Timber.w("MockWebServer shutdown failed", e)
+            Log.w("MockWebServerRule","MockWebServer shutdown failed", e)
         }
     }
 

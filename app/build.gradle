@@ -129,9 +129,6 @@ dependencies {
     // Fast Scroll
     implementation "io.github.l4digital:fastscroll:2.1.0"
 
-    // Logging
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-
     // Unit Tests
     testImplementation 'junit:junit:4.13.2'
 

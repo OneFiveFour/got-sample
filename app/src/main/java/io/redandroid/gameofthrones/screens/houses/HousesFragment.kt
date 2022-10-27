@@ -25,7 +25,6 @@ import io.redandroid.gameofthrones.common.recyclerview.VerticalItemDecoration
 import io.redandroid.gameofthrones.databinding.FragmentHousesBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 /**
  * This fragment displays a list of all houses in Game of Thrones.
@@ -138,7 +137,6 @@ class HousesFragment : Fragment(), ItemClickListener {
 
     override fun onItemClicked(clickedView: View, clickedItem: Any) {
         if (clickedItem !is House) return
-        Timber.d("+++ House clicked: $clickedItem")
         val directions = HousesFragmentDirections.actionHousesFragmentToHouseFragment(clickedItem.id)
         findNavController().navigate(directions)
     }

@@ -34,9 +34,6 @@ android {
 
 dependencies {
 
-    // Logging
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-
     // Server Response
     // expose to upper layer to allow usage of [ServerError] and [NetworkResponse]
     api "com.github.haroldadmin:NetworkResponseAdapter:5.0.0"

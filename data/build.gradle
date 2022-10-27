@@ -54,9 +54,6 @@ dependencies {
     // Json
     implementation 'com.google.code.gson:gson:2.9.0'
 
-    // Logging
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-
     // Unit Tests
     testImplementation 'junit:junit:4.13.2'
     testImplementation "com.google.truth:truth:1.1.3"
