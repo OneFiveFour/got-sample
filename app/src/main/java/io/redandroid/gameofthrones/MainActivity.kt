@@ -20,11 +20,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<View>(R.id.iv_dark_mode).setOnClickListener {
-            Timber.d("+++ DARK MODE")
             toggleDarkMode()
         }
     }
 
+    /**
+     * Switch between dark and light mode. For brevity, the selection is not persisted and
+     * has to be done for every app restart.
+     */
     private fun toggleDarkMode() {
         val newMode = when (AppCompatDelegate.getDefaultNightMode()) {
             AppCompatDelegate.MODE_NIGHT_NO -> AppCompatDelegate.MODE_NIGHT_YES
